@@ -1,0 +1,45 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+</head>
+<body>
+  <h1>Register</h1>
+  <form id="register-form">
+    <label>
+      Name:
+      <input type="text" id="name" name="name" required />
+    </label><br />
+    <label>
+      Email:
+      <input type="email" id="email" name="email" required />
+    </label><br />
+    <label>
+      Password:
+      <input type="password" id="password" name="password" required />
+    </label><br />
+    <label>
+      Accept Terms:
+      <input type="checkbox" id="terms" name="terms" />
+    </label><br />
+    <button type="submit">Register</button>
+  </form>
+  <div id="message"></div>
+  <script>
+    document.getElementById('register-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const terms = document.getElementById('terms').checked;
+      if (terms) {
+        document.getElementById('message').innerText = `Welcome, ${name}!`;
+      } else {
+        document.getElementById('message').innerText = 'Please accept the terms.';
+      }
+    });
+  </script>
+</body>
+</html>
